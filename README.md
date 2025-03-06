@@ -10,37 +10,37 @@ O contrato Visibilidade contém uma variável de estado chamada nome e duas fun�
 	•	salvaNome(string memory _nome): Função externa que permite definir um valor para a variável nome.
 	•	qualNome(): Função interna que retorna o valor da variável nome.
 
-Além disso, o contrato Outro herda Visibilidade e utiliza a função herdada qualNome dentro da sua própria função hoo.
+Além disso, o contrato **Outro** herda Visibilidade e utiliza a função herdada qualNome dentro da sua própria função **hoo**.
 
 📜 Código
 
 Aqui está o código corrigido do contrato:
-|******************************************************************************************|
-|  // SPDX-License-Identifier: MIT                                                         |
-|  pragma solidity ^0.8.0;                                                                 |
-|                                                                                          |
-|  // Declaração do contrato principal                                                     |
-|  contract Visibilidade {                                                                 |
-|      string internal nome; // Variável "nome" tem visibilidade "internal"                |
-|                                                                                          |
-|      // Função externa que permite definir um valor para a variável "nome"               |
-|      function salvaNome(string memory _nome) external {                                  |
-|          nome = _nome;                                                                   |
-|      }                                                                                   |
-|                                                                                          |
-|      // Função interna que retorna o valor da variável "nome"                            |
-|      function qualNome() internal view returns (string memory) {                         |
-|          return nome;                                                                    |
-|      }                                                                                   |
-|  }                                                                                       |
-|                                                                                          |
-|  // Declaração de um novo contrato chamado "Outro" que HERDA o contrato "Visibilidade"   |
-|  contract Outro is Visibilidade {                                                        |
-|      // Função externa que chama a função "qualNome" herdada do contrato "Visibilidade"  |
-|      function hoo() external view returns (string memory) {                              |
-|          return qualNome();                                                              |
-|      }                                                                                   |
-| }                                                                                        |
+******************************************************************************************
+  // SPDX-License-Identifier: MIT                                                         
+  pragma solidity ^0.8.0;                                                                 
+                                                                                          
+  // Declaração do contrato principal                                                     
+  contract Visibilidade {                                                                 
+      string internal nome; // Variável "nome" tem visibilidade "internal"                
+                                                                                          
+      // Função externa que permite definir um valor para a variável "nome"               
+      function salvaNome(string memory _nome) external {                                  
+          nome = _nome;                                                                   
+      }                                                                                   
+                                                                                          
+      // Função interna que retorna o valor da variável "nome"                            
+      function qualNome() internal view returns (string memory) {                         
+          return nome;                                                                    
+      }                                                                                   
+  }                                                                                       
+                                                                                          
+  // Declaração de um novo contrato chamado "Outro" que HERDA o contrato "Visibilidade"   
+  contract Outro is Visibilidade {                                                        
+      // Função externa que chama a função "qualNome" herdada do contrato "Visibilidade"  
+      function hoo() external view returns (string memory) {                              
+          return qualNome();                                                              
+      }                                                                                   
+ }                                                                                        
 ********************************************************************************************
 🚀 Funcionamento
 	1.	O contrato Visibilidade permite armazenar um nome usando salvaNome(string memory _nome).
